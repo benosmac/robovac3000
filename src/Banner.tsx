@@ -1,3 +1,5 @@
+import imgUrl from "/src/img/keys.png";
+
 export function Banner(props) {
   return (
     <header class="banner">
@@ -27,7 +29,7 @@ export function Banner(props) {
       </span>
       <div class="info">
         <h2>Use your arrow keys to clean the floor!</h2>
-        <img src="src/img/keys.png" alt="Keyboard arrow keys" />
+        <img src={imgUrl} alt="Keyboard arrow keys" />
       </div>
     </header>
   );
