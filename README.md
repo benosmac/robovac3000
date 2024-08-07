@@ -3,9 +3,11 @@
 Demo of a controllable robot vacuum cleaner that can move around a grid.
 Grid size can be adjusted on the front end.
 
+DEMO: https://robogrid.netlify.app/
+
 ### Browser support
 
-This demo uses the view transitions API to animate changes grid-row and grid-column (as their animation behaviour is discrete). Current supported browsers: https://caniuse.com/view-transitions
+This demo uses the view transitions API. Current supported browsers: https://caniuse.com/view-transitions
 
 ## Installation
 

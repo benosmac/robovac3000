@@ -28,7 +28,7 @@ export function Banner(props) {
         </label>
       </span>
       <div class="info">
-        <h2>Use your arrow keys to clean the floor!</h2>
+        <h2>Guide Robovac with your arrow keys</h2>
         <img src={imgUrl} alt="Keyboard arrow keys" />
       </div>
     </header>
