@@ -13,6 +13,7 @@ html {
 body {
   margin: 0;
 }
+
 .banner {
   display: flex;
   flex-wrap: wrap;
@@ -23,19 +24,16 @@ body {
   border-block-end: 1px solid var(--grey);
 }
 .settings {
-  display: flex;
-  gap: 1rem;
   & label {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-  }
-  & input[type="number"] {
-    width: 5ch;
-    font-size: 1.25em;
-    padding: 0.25em;
-    border: 1px solid var(--grey);
-    border-radius: 0.25em;
+    & span {
+      min-width: 12ch;
+      .value {
+        color: var(--bellroyOrange);
+      }
+    }
   }
 }
 
@@ -46,6 +44,7 @@ body {
   h2 {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--bellroyOrange);
   }
   & img {
     height: 5rem;
@@ -126,4 +125,48 @@ body {
 html::view-transition-group(*) {
   animation-duration: 0.66s;
   animation-timing-function: cubic-bezier(0.6, 0, 0.26, 1.15);
+}
+
+/* Range Input */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 8rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--grey);
+  height: 0.05rem;
+}
+input[type="range"]::-moz-range-track {
+  background: var(--grey);
+  height: 0.05rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -0.5rem;
+  background-color: var(--bellroyOrange);
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0.5rem;
+}
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  background-color: var(--bellroyOrange);
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0.5rem;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline-style: solid;
+  outline-color: #fff;
+  outline-offset: -3px;
+  outline-width: 2px;
 }

@@ -5,10 +5,14 @@ export function Banner(props) {
     <header class="banner">
       <span class="settings">
         <label>
-          Rows:
+          <span>
+            Rows: <span class="value">{props.gridRows}</span>
+          </span>
           <input
-            type="number"
+            type="range"
             name="rows"
+            min="5"
+            max="20"
             value={props.gridRows}
             onInput={(event) =>
               props.setGridRows(Number(event.currentTarget.value))
@@ -16,10 +20,14 @@ export function Banner(props) {
           ></input>
         </label>
         <label>
-          Columns:
+          <span>
+            Columns: <span class="value">{props.gridCols}</span>
+          </span>
           <input
-            type="number"
+            type="range"
             name="cols"
+            min="5"
+            max="20"
             value={props.gridCols}
             onInput={(event) =>
               props.setGridCols(Number(event.currentTarget.value))
