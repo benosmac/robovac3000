@@ -14,6 +14,7 @@ body {
   margin: 0;
 }
 
+/* Header banner */
 .banner {
   display: flex;
   flex-wrap: wrap;
@@ -36,7 +37,6 @@ body {
     }
   }
 }
-
 .info {
   display: flex;
   align-items: end;
@@ -50,6 +50,8 @@ body {
     height: 5rem;
   }
 }
+
+/* Grid */
 .grid {
   display: grid;
   gap: 0.25rem;
@@ -64,6 +66,8 @@ body {
   filter: brightness(1);
   transition: filter 0.33s linear 0.66s;
 }
+
+/* ROBOVAC3000 */
 #robot {
   view-transition-name: robot;
   align-self: center;
@@ -121,6 +125,8 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* View transitions */
 html::view-transition-group(*) {
   animation-duration: 0.66s;
   animation-timing-function: cubic-bezier(0.6, 0, 0.26, 1.15);
@@ -134,7 +140,6 @@ input[type="range"] {
   cursor: pointer;
   width: 8rem;
 }
-
 input[type="range"]::-webkit-slider-runnable-track {
   background: var(--grey);
   height: 0.05rem;
@@ -143,7 +148,6 @@ input[type="range"]::-moz-range-track {
   background: var(--grey);
   height: 0.05rem;
 }
-
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
