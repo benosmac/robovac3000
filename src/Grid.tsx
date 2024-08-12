@@ -1,5 +1,5 @@
 import { createMemo, Index } from "solid-js";
-import { Robot } from "./Robot";
+import { useGridCols, useGridRows } from "./modules/state";
 
 // Generate nested array representing the grid rows and cells
 function setUpGrid(rows: number, cols: number): [][] {
@@ -11,8 +11,8 @@ function setUpGrid(rows: number, cols: number): [][] {
 }
 
 export function Grid(props) {
-  const gridRows = () => props.gridRows;
-  const gridCols = () => props.gridCols;
+  const [gridRows] = useGridRows();
+  const [gridCols] = useGridCols();
   // Recreate the grid layout when rows and cols change
   const grid = createMemo(() => setUpGrid(gridRows(), gridCols()));
 
@@ -25,8 +25,8 @@ export function Grid(props) {
         "grid-template-columns": `repeat(${gridCols()}, 1fr)`,
       }}
     >
-      {/* Set starting coordinates and grid boundary for Robovac */}
-      <Robot startX={1} startY={1} bounds={{ x: gridCols(), y: gridRows() }} />
+      {/* Render the robovac3000 */}
+      {props.children}
 
       <Index each={grid()}>
         {/* Loop through the rows */}
@@ -38,8 +38,8 @@ export function Grid(props) {
                 return (
                   <div
                     class="cell"
-                    data-x={x}
-                    data-y={y}
+                    data-x={x + 1}
+                    data-y={y + 1}
                     style={{ "grid-row": y + 1, "grid-column": x + 1 }}
                   ></div>
                 );

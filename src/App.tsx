@@ -1,19 +1,18 @@
-import { createSignal, type Component } from "solid-js";
+import { type Component } from "solid-js";
 import { Grid } from "./Grid";
 import "./css/style.css";
 import { Banner } from "./Banner";
+import { Robot } from "./Robot";
+import { Controls } from "./Controls";
+
 const App: Component = () => {
-  const [gridRows, setGridRows] = createSignal(5);
-  const [gridCols, setGridCols] = createSignal(5);
   return (
     <>
-      <Banner
-        gridRows={gridRows()}
-        setGridRows={setGridRows}
-        gridCols={gridCols()}
-        setGridCols={setGridCols}
-      />
-      <Grid gridRows={gridRows()} gridCols={gridCols()} />
+      <Banner />
+      <Grid>
+        <Robot />
+      </Grid>
+      <Controls />
     </>
   );
 };
