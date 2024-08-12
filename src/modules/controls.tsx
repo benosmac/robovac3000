@@ -12,9 +12,8 @@ const [direction, setDirection] = useDirection();
 const [gridRows] = useGridRows();
 const [gridCols] = useGridCols();
 
-//Handle all keydown events
+// Handle all control events
 export function controls(event: KeyboardEvent | MouseEvent) {
-  console.log(event.target);
   if (event instanceof KeyboardEvent) {
     // Only proceed for arrow keys
     if (event.key == "ArrowDown" || "ArrowUp" || "ArrowLeft" || "ArrowRight") {
@@ -29,15 +28,17 @@ export function controls(event: KeyboardEvent | MouseEvent) {
       return;
     }
   }
+  // Handle click events
   if (event instanceof MouseEvent) {
     if (event.target instanceof HTMLButtonElement) {
+      // read the data-key attribute on the control buttons to get direction
       const direction = event.target.dataset.key;
       direction && handleMovement(direction);
     }
   }
 }
 
-// Handle arrow key events
+// Dispatch controls
 function handleMovement(k: string) {
   // If robot if facing another direction, turn to face arrow direction
   if (k != direction()) {
@@ -53,12 +54,12 @@ function handleMovement(k: string) {
   document.startViewTransition(() => moveRobot(k));
 }
 
+// Change the robot position
 function moveRobot(k: string) {
   // Set robot's new position if it is within the grid bounds
   switch (k) {
     case "ArrowDown":
       if (posY() < gridRows() && posY() >= 1) setPosY((prev) => prev + 1);
-      console.log(k);
       break;
     case "ArrowUp":
       if (posY() <= gridRows() && posY() > 1) setPosY((prev) => prev - 1);
